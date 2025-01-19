@@ -1,4 +1,4 @@
-const  cheerio = require("cheerio");
+const cheerio = require("cheerio");
 const db = require('./database');
 const axios = require('axios');
 
@@ -20,17 +20,17 @@ async function getNews() {
         })
     })
 
-    for(const story of newsarticles){
+    for (const story of newsarticles) {
         await db.execute(
-              'INSERT INTO news (title, url, `rank`, created_at) VALUES (?, ?, ?, NOW()) ON DUPLICATE KEY UPDATE `rank` = VALUES(`rank`)',
-              [story.title, story.url, story.rank]
-            );
-          } (err, results) => {
-            if(err) {
-                console.error(err);
-            }
-            console.log(results);
+            'INSERT INTO news (title, url, `rank`, created_at) VALUES (?, ?, ?, NOW()) ON DUPLICATE KEY UPDATE `rank` = VALUES(`rank`)',
+            [story.title, story.url, story.rank]
+        );
+    } (err, results) => {
+        if (err) {
+            console.error(err);
         }
+        console.log(results);
     }
+}
 
 module.exports = getNews

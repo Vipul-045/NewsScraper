@@ -8,16 +8,16 @@ const PORT = 3000;
 app.use(express.json());
 
 app.get('/news', async (req, res) => {
-     const [results] = await db.execute('SELECT * FROM news ORDER BY created_at DESC');
-        res.json(results);
-    });
+    const [results] = await db.execute('SELECT * FROM news ORDER BY created_at DESC');
+    res.json(results);
+});
 
 app.get('/news/latest', async (req, res) => {
     const [results] = await db.execute(
-    'SELECT * FROM news WHERE created_at >= NOW() - INTERVAL 5 MINUTE ORDER BY created_at DESC')
-      res.json(results);
+        'SELECT * FROM news WHERE created_at >= NOW() - INTERVAL 5 MINUTE ORDER BY created_at DESC')
+    res.json(results);
 });
 
-setInterval(getNews, 30000);
+setInterval(getNews, 1000);
 
 app.listen(PORT);
