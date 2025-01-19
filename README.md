@@ -25,7 +25,6 @@ npm install
 node index.js
 ```
 ### 2. Setup the environment variables
-\
 Create a .env file and add environment varibles shown in the .env.example file
 
 ### 3. Database Setup 
