@@ -1,47 +1,73 @@
-#Installation
 
-### 1. Clone the repository
-Start by cloning this repository to your local machine:
+News Scraper Backend
+## About 📝
+This is a Node.js service to scrape real-time stories from Hacker News
 
+## Tech stack🛠️
+-nodejs
+\
+-mysql
+\
+-express
+\
+-Postman
+
+## Installation 🧑🏻‍💻
+
+Run the following commands to setup the project locally
+
+### 1. Codebase Setup
 ```bash
 git clone https://github.com/your-username/your-repository-name.git
 
-### 2. Install Dependencies
-Run the command in terminal to install all the dependencies locally
+npm install 
 
-```bash
-git clone https://github.com/your-username/your-repository-name.git
-
-### 3. Setup the environment variables
+node index.js
+```
+### 2. Setup the environment variables
+\
 Create a .env file and add environment varibles shown in the .env.example file
 
-### 4. Run the apllication
-
-```bash
-node index.js
-
-#Database Setup 
-1) Set the name of the database, for example 'news'
+### 3. Database Setup 
+Set the name of the database, for example 'news'
 Run
 ```bash
 $ mysql -u root -p
+```
 to go to mysql profile and enter your password
 
 ```bash
 CREATE DATABASE news;
+```
 to create a Database table name news;
 
 ```bash
 USE news;
+```
 Then go to news
 
 and Creat the table structure
 ```bash
-mysql> CREATE TABLE stories (
+mysql> CREATE TABLE news (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     url TEXT NOT NULL,
+    rank INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE (title)
 ); 
- 
+```
+That's it!!
+
+4. Run the Get commands in POSTMAN such as
+
+```bash
+localhost:3000/news
+```
+To get all the news
+
+and 
+```bash
+localhost:3000/news/latest
+```
+to get the news from the last 5 minutes
