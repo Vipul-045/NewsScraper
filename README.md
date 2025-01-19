@@ -18,7 +18,7 @@ Run the following commands to setup the project locally
 
 ### 1. Codebase Setup
 ```bash
-git clone https://github.com/your-username/your-repository-name.git
+git clone https://github.com/Vipul-045/NewsScraper.git
 
 npm install 
 
@@ -59,7 +59,7 @@ mysql> CREATE TABLE news (
 ```
 That's it!!
 
-4. Run the Get commands in POSTMAN such as
+### 4. Run the GET commands in POSTMAN such as
 
 ```bash
 localhost:3000/news
